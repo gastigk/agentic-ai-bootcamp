@@ -1,16 +1,16 @@
-# 🔧 MCP (Model Context Protocol) Integration Guide
+# MCP (Model Context Protocol) Integration Guide
 
 ## Overview
 
-This document explains the **Model Context Protocol (MCP)** integration for Google Drive access in the Agentic AI Planner.
+This document explains the **Model Context Protocol (MCP)** integration for Google Drive access in the Agentic AI Bootcamp.
 
 ### What is MCP?
 
 **Model Context Protocol (MCP)** is a standard protocol for connecting AI models with external tools and resources. It enables:
-- ✅ Dynamic tool discovery from external servers
-- ✅ Secure, standardized communication with external services
-- ✅ Stateless operations (no persistent connections required)
-- ✅ Composable, reusable tool interfaces
+- Dynamic tool discovery from external servers
+- Secure, standardized communication with external services
+- Stateless operations (no persistent connections required)
+- Composable, reusable tool interfaces
 
 ## Architecture
 
@@ -84,11 +84,11 @@ Main MCP integration module containing:
 - `run_async(func)` - Decorator for running async functions in Streamlit
 
 **Key Features:**
-- ✅ Singleton pattern for connection pooling
-- ✅ Async/sync bridge for Streamlit compatibility
-- ✅ Mock fallback when MCP server unavailable
-- ✅ Comprehensive error handling and logging
-- ✅ 100% type hints and docstrings
+- Singleton pattern for connection pooling
+- Async/sync bridge for Streamlit compatibility
+- Mock fallback when MCP server unavailable
+- Comprehensive error handling and logging
+- 100% type hints and docstrings
 
 ### Modified Files
 
@@ -102,13 +102,13 @@ Main MCP integration module containing:
 #### 2. `src/graph.py`
 
 **Changes:**
-- ✅ Added new `drive_node()` function (80+ lines)
-- ✅ Updated router keywords with 9 drive keywords
-- ✅ Updated router scoring logic with drive priority
-- ✅ Added "drive" to `route_based_on_context()` return type
-- ✅ Integrated drive_node into `build_workflow()`
-- ✅ Added conditional routing for drive context
-- ✅ Updated `__all__` exports
+- Added new `drive_node()` function (80+ lines)
+- Updated router keywords with 9 drive keywords
+- Updated router scoring logic with drive priority
+- Added "drive" to `route_based_on_context()` return type
+- Integrated drive_node into `build_workflow()`
+- Added conditional routing for drive context
+- Updated `__all__` exports
 
 ## How It Works
 
@@ -288,15 +288,15 @@ MCP Server: Not running
 Run the integration test:
 
 ```bash
-python test_mcp_integration.py
+python tests/test_mcp_integration.py
 ```
 
 Expected output:
-- ✅ Mock tools load correctly
-- ✅ Router detects drive keywords
-- ✅ MCP architecture diagram shown
-- ✅ Tool descriptions displayed
-- ✅ Usage examples provided
+- Mock tools load correctly
+- Router detects drive keywords
+- MCP architecture diagram shown
+- Tool descriptions displayed
+- Usage examples provided
 
 ## Async Pattern Explanation
 
@@ -352,9 +352,9 @@ except Exception as e:
 ### Connection Pooling
 
 MCPClientManager singleton ensures:
-- ✅ Only one connection per server
-- ✅ Reuse existing connections
-- ✅ Automatic cleanup
+- Only one connection per server
+- Reuse existing connections
+- Automatic cleanup
 
 ```python
 # First call: Creates connection
@@ -406,11 +406,11 @@ server_url = os.getenv("MCP_SERVER_URL", "http://localhost:3000")
 
 The MCP integration is **fully backward compatible**:
 
-- ✅ Existing nodes (finance, health, docs, general) unchanged
-- ✅ Router enhanced but not breaking
-- ✅ New node added alongside existing ones
-- ✅ No modifications to state structure
-- ✅ No breaking changes to API
+- Existing nodes (finance, health, docs, general) unchanged
+- Router enhanced but not breaking
+- New node added alongside existing ones
+- No modifications to state structure
+- No breaking changes to API
 
 ## Next Steps
 
@@ -489,19 +489,19 @@ The MCP integration is **fully backward compatible**:
 
 ## Summary
 
-✅ **MCP Integration Complete!**
+MCP Integration Complete!
 
-The Agentic AI Planner now has full Google Drive integration via Model Context Protocol:
+The Agentic AI Bootcamp now has full Google Drive integration via Model Context Protocol:
 
-- **Automatic context detection** for drive-related queries
-- **Dynamic tool loading** from external MCP servers
-- **Graceful fallback** to mock tools for development
-- **Async-safe** implementation for Streamlit
-- **Connection pooling** via singleton pattern
-- **Production-ready** error handling and logging
+- Automatic context detection for drive-related queries
+- Dynamic tool loading from external MCP servers
+- Graceful fallback to mock tools for development
+- Async-safe implementation for Streamlit
+- Connection pooling via singleton pattern
+- Production-ready error handling and logging
 
 The system seamlessly routes drive queries to a specialized `drive_node` that accesses files via MCP tools, while maintaining full compatibility with existing finance, health, and documentation nodes.
 
 ---
 
-*Last Updated: 2024 | Status: ✅ Implementation Complete*
+*Last Updated: 2024 | Status: Implementation Complete*
