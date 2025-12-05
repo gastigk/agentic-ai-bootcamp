@@ -1,4 +1,4 @@
-# Family AI Assistant - DataScienceDojo Agentic AI Capstone Project
+# Family AI Assistant - DataScienceDojo Agentic AI Bootcamp
 
 A multi-agent AI assistant using LangChain, LangGraph, and RAG for personalized finance, health, and document analysis.
 
@@ -143,8 +143,8 @@ family-ai-assistant/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/family-ai-assistant.git
-cd family-ai-assistant
+git clone https://github.com/gastigk/agentic-ai-bootcamp.git
+cd agentic-ai-bootcamp
 ```
 
 2. Run the setup script:
