@@ -102,24 +102,25 @@ This project showcases the practical application of the following technologies a
 ## Project Structure
 
 ```
-family-ai-assistant/
+agentic-ai-bootcamp/
 
 ├── src/                           # Core application source code
 │   ├── __init__.py
 │   ├── state.py                   # Pydantic TypedDict for state management
-│   ├── llm.py                     # LLM initialization and configuration
 │   ├── graph.py                   # Main StateGraph orchestration
-│   ├── tools/                     # Specialized tools and agents
+│   ├── tools/                     # Specialized tools for each domain
 │   │   ├── __init__.py
-│   │   ├── finance_tools.py       # Financial analysis tools
-│   │   ├── health_tools.py        # Health & wellness tools
-│   │   ├── doc_tools.py           # Document processing
-│   │   ├── rag.py                 # RAG pipeline implementation
+│   │   ├── finance.py             # Financial analysis tools
+│   │   ├── health.py              # Health & wellness tools
+│   │   ├── docs.py                # Document processing tools
 │   │   └── drive_mcp.py           # Google Drive MCP integration
-│   │
-│   └── agents/                    # Sub-graphs and specialized workflows
-│       ├── __init__.py
-│       └── rag_agentic.py         # Agentic RAG sub-graph
+│   ├── rag/                       # RAG pipeline implementation
+│   │   ├── __init__.py
+│   │   └── graph.py               # RAG workflow graph
+│   ├── agents/                    # Sub-graphs and specialized workflows
+│   │   └── __init__.py
+│   └── database/                  # Database utilities
+│       └── __init__.py
 │
 ├── tests/                         # Test suite
 │   ├── __init__.py
@@ -127,24 +128,32 @@ family-ai-assistant/
 │   ├── test_rag_integration.py    # RAG pipeline tests
 │   └── validate_structure.py      # Project structure validation
 │
+├── agentic-ai-basic/              # Streamlit tutorial app
+│   ├── Home.py                    # Home page
+│   ├── pages/                     # Tutorial pages
+│   │   ├── 1_Basic_Chatbot.py     # Tutorial: Simple chatbot
+│   │   ├── 2_Chatbot_Agent.py     # Tutorial: Agent with tool calling
+│   │   ├── 3_Chat_with_your_Data.py  # Tutorial: RAG pipeline
+│   │   └── 4_MCP_Agent.py         # Tutorial: MCP integration
+│   └── requirements.txt           # Tutorial dependencies
+│
 ├── app.py                         # Main Streamlit application entry point
-├── Home.py                        # Streamlit home page
-│
-├── 1_Basic_Chatbot.py             # Tutorial: Simple chatbot
-├── 2_Chatbot_Agent.py             # Tutorial: Agent with tool calling
-├── 3_Chat_with_your_Data.py       # Tutorial: RAG pipeline
-├── 4_MCP_Agent.py                 # Tutorial: MCP integration
-│
 ├── requirements.txt               # Python dependencies
 ├── setup.sh                       # Setup and installation script
 ├── pytest.ini                     # Pytest configuration
 ├── .env.example                   # Environment variables template
 ├── .gitignore                     # Git ignore rules
 │
+├── README.md                      # This file
 ├── MCP_INTEGRATION_GUIDE.md       # MCP implementation guide
-├── RELEASE_CANDIDATE.md           # Release candidate checklist
-└── README.md                      # This file
+└── RELEASE_CANDIDATE.md           # Release candidate checklist
 ```
+
+**Key Directories:**
+- **src/**: Core application logic (graph, state, tools, RAG pipeline)
+- **tests/**: Test suite with pytest
+- **agentic-ai-basic/**: Streamlit tutorial application with 4 learning examples
+- **Root level**: Configuration, main app, and documentation
 
 ## Installation and Setup
 
