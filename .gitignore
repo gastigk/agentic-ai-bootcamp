@@ -70,3 +70,7 @@ htmlcov/
 *.tmp
 *.temp
 tmp/
+
+# Development Documentation (Personal/Local only)
+copilot-rules.md
+COMPLETION_REPORT.md
