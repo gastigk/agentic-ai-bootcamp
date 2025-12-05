@@ -29,32 +29,48 @@ The assistant provides a unified interface powered by specialized AI agents that
 
 The system utilizes a hub-and-spoke architecture managed by a central router.
 
+System Architecture Flow:
+
 ```
-graph LR
-    A["User Query"] --> B["Streamlit Interface"]
-    B --> C["LangGraph Router"]
-    C -->|"Finance Keywords"| D["Finance Agent"]
-    C -->|"Health Keywords"| E["Health Agent"]
-    C -->|"Document Keywords"| F["RAG Agent"]
-    C -->|"Drive Keywords"| G["Drive Agent (MCP)"]
-    C -->|"Other"| H["General Agent"]
-    D --> I["Tool Execution"]
-    E --> I
-    F --> I
-    G --> I
-    H --> I
-    I --> J["Response to User"]
-    J --> B
-    
-    style A fill:#4A90E2,stroke:#2E5C8A,color:#fff
-    style B fill:#7B68EE,stroke:#5A4A9A,color:#fff
-    style C fill:#FF6B6B,stroke:#D63031,color:#fff
-    style D fill:#FFD93D,stroke:#C9A800,color:#000
-    style E fill:#6BCB77,stroke:#4A9D5F,color:#fff
-    style F fill:#4D96FF,stroke:#3570C9,color:#fff
-    style G fill:#A0522D,stroke:#6D3A1F,color:#fff
-    style H fill:#95A5A6,stroke:#7F8C8D,color:#fff
+USER INPUT
+    |
+    v
+STREAMLIT INTERFACE
+    |
+    v
+LANGGRAPH ROUTER (Analyzes keywords and intent)
+    |
+    +---> Finance Keywords -----> FINANCE AGENT ----+
+    |                                                 |
+    +---> Health Keywords ------> HEALTH AGENT ------+
+    |                                                 |
+    +---> Document Keywords ----> RAG AGENT ---------+
+    |                                                 |
+    +---> Drive Keywords -------> DRIVE AGENT (MCP)-+
+    |                                                 |
+    +---> Other Queries -------> GENERAL AGENT -----+
+    |                                                 |
+    +-----> TOOL EXECUTION <-------+
+            (Runs specialized functions)
+                    |
+                    v
+            RESPONSE GENERATION
+                    |
+                    v
+            SEND TO USER
 ```
+
+How it works:
+1. User enters a query in Streamlit interface
+2. Router analyzes keywords to determine the intent
+3. Query routes to the appropriate specialist agent:
+   - Finance Agent: Handles budgets, spending, investments
+   - Health Agent: Manages medical info, symptom analysis
+   - RAG Agent: Retrieves and processes documents
+   - Drive Agent: Accesses files via Google Drive (MCP)
+   - General Agent: Handles other topics
+4. Selected agent executes relevant tools
+5. Response is generated and sent back to user
 
 ## Technologies and Concepts Implemented
 
